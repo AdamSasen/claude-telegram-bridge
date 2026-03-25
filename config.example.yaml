@@ -1,0 +1,29 @@
+telegram:
+  bot_token: ""              # Or set TELEGRAM_BOT_TOKEN env var
+  allowed_user_ids: []       # Your Telegram user ID(s). Empty = allow all (NOT recommended)
+
+claude:
+  model: "sonnet"            # Claude model: sonnet, opus, haiku
+  timeout: 180               # Max seconds to wait for response
+  working_dir: "~"           # Directory where Claude Code executes
+  permission_mode: "dontAsk" # dontAsk = safe default, acceptEdits = permissive, bypassPermissions = no limits
+  max_turns: 0               # Max agentic turns per message (0 = unlimited)
+
+  # Tools allowed in dontAsk mode (safe read/write operations)
+  # Anything not listed here will be BLOCKED — use /accept to override
+  allowed_tools:
+    - "Read"
+    - "Edit"
+    - "Write"
+    - "Glob"
+    - "Grep"
+    - "Bash(cat *)"
+    - "Bash(ls *)"
+    - "Bash(pwd)"
+    - "Bash(head *)"
+    - "Bash(tail *)"
+    - "Bash(wc *)"
+    # Add more as needed, e.g.:
+    # - "Bash(npm test)"
+    # - "Bash(git status)"
+    # - "Bash(python *)"
